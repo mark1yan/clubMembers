@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add member</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th{
+            font-weight: bold;
+        }    </style>
+</head>
+<body>
+<h1>Welcome to the Club!</h1>
+<form action="/add" method="post">
+    <h2>New member</h2>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="fn" placeholder="Member name"><br>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="fe" placeholder="example@mail.com"><br>
+    <input type="submit">
+    <input type="reset">
+    <h2>Members</h2>
+    <table>
+        <tr>
+            <th style="width: 1%">#</th>
+            <th style="width: 33%">Name</th>
+            <th style="width: 33%">Email</th>
+            <th style="width: 33%">Date</th>
+        </tr>
+    {{- /*gotype: clubMembers.Member*/ -}}
+    {{range .}}
+        <tr>
+            <td>{{.Index}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Email}}</td>
+            <td>{{.Date}}</td>
+        </tr>
+    {{end}}
+    </table>
+</form>
+</body>
+</html>
